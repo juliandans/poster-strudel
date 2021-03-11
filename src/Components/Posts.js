@@ -20,7 +20,7 @@ export default function Posts(props) {
     fetchImagesForSubreddit(props.subreddit)
     .then(setImages)
     .catch(console.error)
-  }, [])
+  }, [props.subreddit])
 
   return ( 
     <SimpleGrid columns={2} spacing={10}>
