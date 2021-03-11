@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChakraProvider, theme} from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { BrowserRouter, Switch, Route, useParams } from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Home from "./Pages/Home"
 import Subreddit from "./Pages/Subreddit"
 
@@ -14,18 +14,11 @@ export default function App() {
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/r/:sub">
-            <SubredditWithParams/>
+          <Route path="/r/:subreddit">
+            <Subreddit/>
           </Route>
         </Switch>
       </BrowserRouter>
     </ChakraProvider>
-  );
-}
-
-function SubredditWithParams() {
-  const { sub } = useParams();
-  return (
-    <Subreddit sub={sub} />
   )
-}
+};
