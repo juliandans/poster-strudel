@@ -1,12 +1,14 @@
 import React from "react";
 import { Box, Badge, Image } from "@chakra-ui/react"
 import { ArrowUpIcon } from "@chakra-ui/icons"
+import nsfw_image_bonk from "../assets/images/nsfw_image_bonk.png"
 
 export default function Post(props) {
+  const { NSFW } = props
 
-  return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={props.image} />
+    return (
+      <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+      <Image src={NSFW ? nsfw_image_bonk : props.image} />
 
       <Box p="6">
         <Box d="flex" alignItems="baseline">
@@ -21,7 +23,7 @@ export default function Post(props) {
           as="h4"
           lineHeight="tight"
         >
-          {props.title}
+          {NSFW ? 'NSFW Post' : props.title}
         </Box>
 
         <Box d="flex" mt="2" alignItems="center">
@@ -30,6 +32,6 @@ export default function Post(props) {
           </Box>
         </Box>
       </Box>
-    </Box>
-  )
+    </Box> 
+    )
 }
