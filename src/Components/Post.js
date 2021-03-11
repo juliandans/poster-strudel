@@ -2,12 +2,15 @@ import React from "react";
 import { Box, Badge, Image } from "@chakra-ui/react"
 import { ArrowUpIcon } from "@chakra-ui/icons"
 import nsfw_image_bonk from "../assets/images/nsfw_image_bonk.png"
+import PostModal from "./Components/PostModal"
 
 export default function Post(props) {
   const { NSFW } = props
+  const { onOpen } = useDisclosure()
 
     return (
-      <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+      <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" onclick={onOpen}>
+      <PostModal {...props} />
       <Image src={NSFW ? nsfw_image_bonk : props.image} />
 
       <Box p="6">
